@@ -1,0 +1,14 @@
+services:
+  ss:
+    build:
+      context: ./server
+    restart: unless-stopped
+    environment:
+      - PORT=80
+    networks: 
+      - proxy
+
+networks:
+  proxy:
+    name: cicd_proxy
+    external: true
